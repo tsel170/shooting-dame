@@ -14,7 +14,7 @@ export const animate = (toAnimate) => {
 
   animationFrame = requestAnimationFrame(() => animate(toAnimate))
 
-  cnvContxt.fillStyle = "rgb(0,0,0,0.1)"
+  cnvContxt.fillStyle = "rgb(0,0,0)"
   cnvContxt.fillRect(0, 0, canvas.width, canvas.height)
 
   particals.forEach((partical, i) => {

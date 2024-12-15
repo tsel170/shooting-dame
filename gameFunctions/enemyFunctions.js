@@ -5,8 +5,10 @@ import { canvas } from "../settings/canvasSettinge.js"
 let spawnTime = 1000
 let minEnemySize = 10
 let maxEnemySize = 40
+
+export let spownID
 export const spawnEnemies = () => {
-  setInterval(() => {
+  spownID = setInterval(() => {
     let x, y
     const radius =
       parseInt(Math.random() * (maxEnemySize - minEnemySize)) +
@@ -30,6 +32,5 @@ export const spawnEnemies = () => {
 
     const enemy = new Enemy(x, y, radius, color, velocity)
     enemys.push(enemy)
-    console.log(enemys)
   }, spawnTime)
 }

@@ -3,7 +3,10 @@ import { canvas } from "./canvasSettinge.js"
 import { init, player, toAnimate } from "../index.js"
 import { scoreElementDiv, startBTN, containner } from "./body.js"
 import { animate } from "../gameFunctions/animations.js"
-import { spawnEnemies } from "../gameFunctions/enemyFunctions.js"
+import {
+  spawnEnemies,
+  spownID,
+} from "../gameFunctions/enemyFunctions.js"
 canvas.addEventListener("click", (e) => {
   createProjectile(e)
 })
@@ -22,6 +25,9 @@ window.addEventListener("resize", () => {
 startBTN.addEventListener("click", () => {
   init()
   animate(toAnimate)
+  clearInterval(spownID)
   spawnEnemies()
   containner.style.display = "none"
 })
+
+window.addEventListener
