@@ -1,5 +1,11 @@
 import { createProjectile } from "../gameFunctions/playerFunctions.js"
-import { canvas } from "./canvasSettinge.js"
+import {
+  canvas,
+  cnvContxt,
+  middleX,
+  middleY,
+  updateMiddle,
+} from "./canvasSettinge.js"
 import { init, player, toAnimate } from "../index.js"
 import { scoreElementDiv, startBTN, containner } from "./body.js"
 import { animate } from "../gameFunctions/animations.js"
@@ -7,6 +13,21 @@ import {
   spawnEnemies,
   spownID,
 } from "../gameFunctions/enemyFunctions.js"
+
+window.addEventListener("keydown", (e) => {
+  e.preventDefault()
+})
+window.addEventListener("keypress", (e) => {
+  e.preventDefault()
+})
+window.addEventListener(
+  "wheel",
+  (e) => {
+    e.preventDefault()
+  },
+  { passive: false }
+)
+
 canvas.addEventListener("click", (e) => {
   createProjectile(e)
 })
@@ -18,8 +39,10 @@ window.addEventListener("resize", () => {
   canvas.width = window.innerWidth
   canvas.height = window.innerHeight
 
-  player.x = canvas.width / 2
-  player.y = canvas.height / 2
+  updateMiddle(canvas.width / 2, canvas.height / 2)
+
+  player.x = middleX
+  player.y = middleY
 })
 
 startBTN.addEventListener("click", () => {
@@ -31,3 +54,11 @@ startBTN.addEventListener("click", () => {
 })
 
 window.addEventListener
+
+let num = 6
+
+function pow(n) {
+  n *= n
+}
+pow(num)
+console.log(num)
